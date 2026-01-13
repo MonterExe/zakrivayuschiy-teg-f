@@ -11,6 +11,507 @@
 */
 
 .page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: var(--grid-gradient);
+  background-size: cover;
+  background-attachment: fixed;
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  font-family: var(--Inter), sans-serif;
+  font-variation-settings: 410;
+}
+
+.header {
+  max-width: 700px;
+  width: 100%;
+  margin-top: 100px;
+  background-color: #FFFFFF;
+}
+
+.header_logo_block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-transform: uppercase;
+  padding: clamp(122px, calc(112.769px + 2.462vw), 130px) clamp(16px, calc(-106.308px + 32.615vw), 122px);
+  font-family: var(--PressStart2P);
+  border: 2px solid #000;
+}
+
+.header_logo {
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+}
+
+.header_title {
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+  padding-top: 20px;
+}
+
+.main {
+  margin-bottom: 100px;
+}
+
+.content_div {
+  display: flex;
+  flex-direction: column;
+  gap: 52px;
+  margin-top: 97px;
+  align-items: center;
+}
+
+.card {
+  max-width: 700px;
+  background-color: #FFFFFF;
+  border: 2px solid #000;
+}
+
+.card_heading {
+  font-size: 18px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.card_image {
+  width: 696px;
+}
+
+.card_text_block {
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  padding-top: 14px;
+  gap: 25px;
+}
+
+.card_text {
+  width: 646px;
+  font-size: 18px;
+}
+
+.card_subtext {
+  font-size: 18px;
+}
+
+.buttons_block {
+  display: flex;
+  justify-content: end;
+  padding-right: 25px;
+  padding-bottom: 25px;
+}
+
+.card__like-button {
+  font-family: var(--PressStart2P);
+  width: 130px;
+  height: 38px;
+  padding-bottom: 5px;
+  font-size: 14px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card__like-button-text {
+
+}
+
+.card_like_icon {
+  border: none;
+}
+
+.label {
+  position: absolute;
+  font-family: var(--PressStart2P);
+  font-size: 14px;
+  text-transform: uppercase;
+  mix-blend-mode: hard-light;
+  -webkit-text-stroke: 1px #fff;
+  opacity: 0.5;
+  inset-inline-end: 25px;
+  inset-block-start: 28px;
+}
+
+.image_block {
+  position: relative;
+}
+
+.button_save {
+  display: flex;
+  align-items: center;
+  max-width: 333px;
+  width: 100%;
+  height: 63px;
+  background: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+}
+
+.floppy_icon {
+  padding-left: 10px;
+  margin-top: 12.4px;
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+  mix-blend-mode: difference;
+  display: inline-block;
+}
+
+.button__text {
+  font-size: 14px;
+  font-family: var(--PressStart2P);
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+  mix-blend-mode: difference;
+  display: inline-block;
+}
+
+dialog::backdrop {
+  background-color: rgb(0 0 0 / 0.6);
+}
+
+.dialog_div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 312px;
+  height: 149px;
+}
+
+.dialog_text {
+  text-transform: uppercase;
+  line-height: 150%;
+  font-family: var(--PressStart2P);
+  width: 270px;
+}
+
+.dialog_floppy {
+  padding-left: 0;
+}
+
+.dialog_button {
+  font-family: var(--PressStart2P);
+  text-transform: uppercase;
+  height: 39px;
+  margin-bottom: 7px;
+}
+
+.dialog_content {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.button_save:focus {
+  outline: none;
+  box-shadow: 2px 2px 0 #000;
+  transition: all 0.3s ease;
+}
+
+.card__like-button:focus {
+  outline: none;
+  box-shadow: 2px 2px 0 #000;
+  transition: all 0.3s ease;
+}
+
+.card__like-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.5s ease-in-out;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.card__like-button:hover::before {
+  transform: scaleX(1);
+}
+
+.button_save::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.5s ease-in-out;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.button_save:hover::before {
+  transform: scaleX(1);
+}
+
+.dialog_button::before {
+  content: '';
+  position: absolute;
+  width: 308px;
+  height: 39px;
+  top: 119px;
+  left: 18px;
+  background: #000;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.5s ease-in-out;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.dialog_button:hover::before {
+  transform: scaleX(1);
+}
+
+.card_like_icon {
+  margin-right: 7px;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  width: 39px; /* Ширина SVG */
+  height: 38px; /* Высота для совпадения с соседней кнопкой */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Прозрачная граница в стандартном состоянии */
+  border: 2px solid transparent;
+  
+  /* Плавный переход для границы при фокусе и его снятии */
+  transition: border-color 0.3s ease;
+}
+
+/* Убираем стандартную обводку в состоянии focus */
+.card_like_icon:focus {
+  outline: none;
+}
+
+/* Фокус только для клавиатурной навигации - видимая рамка */
+.card_like_icon:focus-visible {
+  border-color: var(--accent-color, #000);
+}
+
+.sparks {
+  opacity: 0;
+}
+
+.contour {
+  transition: fill 0.1s linear;
+}
+
+.core {
+  transition: fill 0.3s linear 0.03s;
+}
+
+.main-body {
+  transition: fill 0.3s linear;
+}
+
+.like-icon:hover .core {
+  fill: var(--accent-color, #000); /* Заливаем сердцевину акцентным цветом */
+  transition-delay: 0s; /* Убираем задержку 0.03s из стандартного состояния */
+}
+
+/* При наведении на иконку лайка меняем заливку основного тела */
+.like-icon:hover .main-body {
+  fill: var(--accent-color, #000); /* Заливаем основное тело акцентным цветом */
+  transition-delay: 0.05s; /* Устанавливаем задержку 0.05s */
+}
+
+.like-icon:active .core {
+  fill: var(--animation-fill-color, red); /* Заливаем сердцевину красным цветом */
+  transition-delay: 0s; /* Задержка 0s, как при наведении */
+}
+
+/* При зажатии кнопки мыши на иконке лайка меняем заливку основного тела на красный */
+.like-icon:active .main-body {
+  fill: var(--animation-fill-color, red); /* Заливаем основное тело красным цветом */
+  transition-delay: 0.05s; /* Задержка 0.05s, как при наведении */
+}
+
+/* тестовый код */
+/* тестовый код */
+/* тестовый код */
+/* тестовый код */
+
+
+.like-icon.is-liked .core {
+  fill: var(--animation-fill-color, red);
+  transition-delay: 0s;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--animation-fill-color, red);
+  transition-delay: 0.05s;
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--animation-fill-color, red);
+  transition: fill 0.3s linear 0.06s;
+}
+
+.like-icon.is-liked .heart {
+  animation: heart-scale 0.3s 0.06s linear 1;
+}
+
+@keyframes heart-scale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.like-icon.is-liked .sparks {
+  animation: sparks-opacity 0.3s 0.3s linear 1;
+}
+
+@keyframes sparks-opacity {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+
+.like-icon {
+  transform-origin: center;
+}
+
+/* При лайке применяем анимацию масштабирования к группе heart */
+.like-icon.is-liked .heart {
+  animation: heart-scale 0.3s 0.1s ease-in 1; /* Длительность 0.3s, задержка 0.1s, функция ease-in, 1 повтор */
+}
+
+/* При лайке применяем анимацию появления искр */
+.like-icon.is-liked .sparks {
+  animation: sparks-opacity 0.3s 0.3s ease-in 1; /* Длительность 0.3s, задержка 0.3s, функция ease-in, 1 повтор */
+}
+
+.bonya_image {
+  filter: brightness(1.5);
+}
+
+.misha4_image {
+  filter: saturate(1.5);
+}
+
+.misha5_image {
+  filter: brightness(1.5) opacity(1.5) contrast(1);
+}
+
+.misha1_image {
+  filter: saturate(1.5);
+}
+
+.kitandtomas_image {
+  filter: brightness(2);
+}
+
+.misha2_image {
+  filter: grayscale(1);
+}
+
+.mishaandtomas_image {
+  filter: blur(1px);
+}
+
+.misha3_image {
+  filter: saturate(1.5);
+}
+
+@media (width <= 375px) {
+.header {
+  max-width: 375px;
+  width: 100%;
+}
+
+.header_logo_block {
+  padding: clamp(122px, calc(112.769px + 2.462vw), 130px) clamp(16px, calc(-106.308px + 32.615vw), 122px);
+}
+
+.header_logo {
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+}
+
+.header_title {
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+  padding-top: 20px;
+}
+
+.content_div {
+  gap: 52px;
+  margin-top: 97px;
+}
+
+.card {
+  max-width: 375px;
+  width: 100%;
+}
+
+.card_heading {
+  font-size: 18px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.card_image {
+  width: 371px;
+}
+
+.card_text_block {
+  padding: 25px;
+  gap: 25px;
+}
+
+.card_text {
+  width: 321px;
+}
+
+.buttons_block {
+  padding-right: 25px;
+}
+
+.card__like-button {
+  width: 130px;
+  height: 38px;
+  padding-bottom: 5px;
+}
+
+.button_save {
+  display: flex;
+  flex-direction: column;
+  max-width: 306px;
+  width: 100%;
+  height: 84px;
+}
+
+.floppy_icon {
+  margin-left: 10px;
+  margin-top: 12.4px;
+}
+
+.dialog_div {
+  width: 299px;
+}
 }
