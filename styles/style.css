@@ -239,10 +239,6 @@ dialog::backdrop {
   pointer-events: none;
 }
 
-.button:hover {
-
-}
-
 .button:hover::before {
   transform: scaleX(1);
 }
