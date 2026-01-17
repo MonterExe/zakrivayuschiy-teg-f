@@ -20,7 +20,7 @@
   min-inline-size: 320px;
   min-block-size: 100dvb;
   font-family: var(--Inter), sans-serif;
-  font-variation-settings: 410;
+  font-variation-settings: 'wght' 410;
 }
 
 .header {
@@ -36,7 +36,7 @@
   align-items: center;
   text-transform: uppercase;
   padding: clamp(122px, calc(112.769px + 2.462vw), 130px) clamp(16px, calc(-106.308px + 32.615vw), 122px);
-  font-family: var(--PressStart2P);
+  font-family: var(--PressStart2P), sans-serif;
   border: 2px solid #000;
 }
 
@@ -68,6 +68,7 @@
 }
 
 .card_heading {
+  font-variation-settings: 'wght' 715;
   font-size: 18px;
   padding-left: 10px;
   padding-right: 10px;
@@ -77,6 +78,8 @@
 
 .card_image {
   width: 696px;
+  min-height: 371px;
+  max-height: 696px;
 }
 
 .card_text_block {
@@ -103,34 +106,29 @@
   padding-bottom: 25px;
 }
 
-.card__like-button {
-  font-family: var(--PressStart2P);
-  width: 130px;
-  height: 38px;
-  padding-bottom: 5px;
-  font-size: 14px;
-  position: relative;
-  overflow: hidden;
-}
-
-.card__like-button-text {
-
-}
-
 .card_like_icon {
   border: none;
 }
 
 .label {
   position: absolute;
-  font-family: var(--PressStart2P);
+  z-index: 2;
+  font-family: var(--PressStart2P), sans-serif;
   font-size: 14px;
   text-transform: uppercase;
   mix-blend-mode: hard-light;
-  -webkit-text-stroke: 1px #fff;
+  text-shadow: 1px 1px 0px #fff;
   opacity: 0.5;
   inset-inline-end: 25px;
   inset-block-start: 28px;
+}
+
+@supports (-webkit-text-stroke: 1px #fff) or (text-stroke: 1px #fff) {
+  .label {
+    -webkit-text-stroke: 1px #fff;
+    text-stroke: 1px #fff;
+    text-shadow: none;
+  }
 }
 
 .image_block {
@@ -139,18 +137,14 @@
 
 .button_save {
   display: flex;
-  align-items: center;
+  gap: 11px;
   max-width: 333px;
   width: 100%;
   height: 63px;
-  background: #FFFFFF;
-  position: relative;
-  overflow: hidden;
 }
 
-.floppy_icon {
+.dialog_floppy_icon {
   padding-left: 10px;
-  margin-top: 12.4px;
   position: relative;
   z-index: 2;
   color: #ffffff;
@@ -160,7 +154,7 @@
 
 .button__text {
   font-size: 14px;
-  font-family: var(--PressStart2P);
+  font-family: var(--PressStart2P), sans-serif;
   position: relative;
   z-index: 2;
   color: #ffffff;
@@ -169,7 +163,7 @@
 }
 
 dialog::backdrop {
-  background-color: rgb(0 0 0 / 0.6);
+  background-color: rgb(0 0 0 / 0.75);
 }
 
 .dialog_div {
@@ -177,22 +171,27 @@ dialog::backdrop {
   flex-direction: column;
   justify-content: space-between;
   width: 312px;
-  height: 149px;
 }
 
 .dialog_text {
   text-transform: uppercase;
   line-height: 150%;
-  font-family: var(--PressStart2P);
+  font-family: var(--PressStart2P), sans-serif;
   width: 270px;
+}
+
+.floppy_icon {
+  padding-left: 8px
 }
 
 .dialog_floppy {
   padding-left: 0;
+  margin-left: 10px;
 }
 
 .dialog_button {
-  font-family: var(--PressStart2P);
+  width: 293px;
+  font-family: var(--PressStart2P), sans-serif;
   text-transform: uppercase;
   height: 39px;
   margin-bottom: 7px;
@@ -200,7 +199,13 @@ dialog::backdrop {
 
 .dialog_content {
   display: flex;
+  gap: 20px;
   flex-direction: row-reverse;
+  padding-bottom: 31px;
+}
+
+.form_dialog {
+  align-self: center;
 }
 
 .button_save:focus {
@@ -209,13 +214,17 @@ dialog::backdrop {
   transition: all 0.3s ease;
 }
 
+.card__like-button {
+  position: relative;
+}
+
 .card__like-button:focus {
   outline: none;
   box-shadow: 2px 2px 0 #000;
   transition: all 0.3s ease;
 }
 
-.card__like-button::before {
+.button::before {
   content: '';
   position: absolute;
   top: 0;
@@ -230,46 +239,25 @@ dialog::backdrop {
   pointer-events: none;
 }
 
-.card__like-button:hover::before {
-  transform: scaleX(1);
+.button:hover {
+
 }
 
-.button_save::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #000;
-  transform: scaleX(0);
-  transform-origin: left center;
-  transition: transform 0.5s ease-in-out;
-  z-index: 1;
-  pointer-events: none;
-}
-
-.button_save:hover::before {
+.button:hover::before {
   transform: scaleX(1);
 }
 
 .dialog_button::before {
-  content: '';
-  position: absolute;
   width: 308px;
   height: 39px;
   top: 119px;
   left: 18px;
-  background: #000;
-  transform: scaleX(0);
-  transform-origin: left center;
-  transition: transform 0.5s ease-in-out;
-  z-index: 1;
-  pointer-events: none;
 }
 
-.dialog_button:hover::before {
-  transform: scaleX(1);
+.card_like_icon:hover::before {
+  transform: translateX(0);
+  width: 0px;
+  height: 0px;
 }
 
 .card_like_icon {
@@ -396,9 +384,8 @@ dialog::backdrop {
   transform-origin: center;
 }
 
-/* При лайке применяем анимацию масштабирования к группе heart */
-.like-icon.is-liked .heart {
-  animation: heart-scale 0.3s 0.1s ease-in 1; /* Длительность 0.3s, задержка 0.1s, функция ease-in, 1 повтор */
+.heart { 
+  animation: heart-scale 0.3s 0.1s ease-in 1; /* Длительность 0.3s, задержка 0.1s, функция ease-in, 1 повтор */ 
 }
 
 /* При лайке применяем анимацию появления искр */
@@ -406,19 +393,19 @@ dialog::backdrop {
   animation: sparks-opacity 0.3s 0.3s ease-in 1; /* Длительность 0.3s, задержка 0.3s, функция ease-in, 1 повтор */
 }
 
-.bonya_image {
+.dog_image {
   filter: brightness(1.5);
 }
 
-.misha4_image {
+.sad_cat_image {
   filter: saturate(1.5);
 }
 
-.misha5_image {
+.funny_cat_image {
   filter: brightness(1.5) opacity(1.5) contrast(1);
 }
 
-.misha1_image {
+.smile_cat_image {
   filter: saturate(1.5);
 }
 
@@ -426,7 +413,7 @@ dialog::backdrop {
   filter: brightness(2);
 }
 
-.misha2_image {
+.sad_greycat_image {
   filter: grayscale(1);
 }
 
@@ -434,7 +421,7 @@ dialog::backdrop {
   filter: blur(1px);
 }
 
-.misha3_image {
+.sleeping_cat_image {
   filter: saturate(1.5);
 }
 
@@ -492,12 +479,6 @@ dialog::backdrop {
   padding-right: 25px;
 }
 
-.card__like-button {
-  width: 130px;
-  height: 38px;
-  padding-bottom: 5px;
-}
-
 .button_save {
   display: flex;
   flex-direction: column;
@@ -506,12 +487,16 @@ dialog::backdrop {
   height: 84px;
 }
 
-.floppy_icon {
+.dialog_floppy_icon {
   margin-left: 10px;
   margin-top: 12.4px;
 }
 
 .dialog_div {
   width: 299px;
+}
+
+.floppy_icon {
+  margin-top: 13px;
 }
 }

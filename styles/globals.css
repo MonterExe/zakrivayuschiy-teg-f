@@ -32,10 +32,14 @@ a {
 
 button,
 input {
+  width: 100%;
+  align-items: center;
   color: currentColor;
   font-family: inherit;
   font-size: inherit;
-  background: transparent;
+  width: 130px;
+  background: #fff;
+  overflow: hidden;
 }
 
 ul,
