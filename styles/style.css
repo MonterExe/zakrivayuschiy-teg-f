@@ -146,15 +146,6 @@
   height: 55px;
 }
 
-.dialog_floppy_icon {
-  padding-left: 10px;
-  position: relative;
-  z-index: 2;
-  color: #ffffff;
-  mix-blend-mode: difference;
-  display: inline-block;
-}
-
 .button__text {
   font-size: 14px;
   font-family: var(--PressStart2P), sans-serif;
@@ -192,6 +183,7 @@ dialog::backdrop {
 }
 
 .floppy {
+  position: relative;
   mix-blend-mode: difference;
   z-index: 2;
   color: #ffffff;
@@ -253,21 +245,6 @@ dialog::backdrop {
 
 .button:hover::before {
   transform: scaleX(1);
-}
-
-.main_button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #000;
-  transform: scaleX(0);
-  transform-origin: left center;
-  transition: transform 0.5s ease-in-out;
-  z-index: 1;
-  pointer-events: none;
 }
 
 .main_button:hover {
@@ -455,25 +432,6 @@ dialog::backdrop {
 @media (width <= 375px) {
 .header {
   max-width: 375px;
-  width: 100%;
-}
-
-.header_logo_block {
-  padding: clamp(122px, calc(112.769px + 2.462vw), 130px) clamp(16px, calc(-106.308px + 32.615vw), 122px);
-}
-
-.header_logo {
-  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
-}
-
-.header_title {
-  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
-  padding-top: 20px;
-}
-
-.content_div {
-  gap: 52px;
-  margin-top: 97px;
 }
 
 .card {
@@ -481,36 +439,17 @@ dialog::backdrop {
   width: 100%;
 }
 
-.card_heading {
-  font-size: 18px;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
 .card_image {
   width: 371px;
-}
-
-.card_text_block {
-  padding: 25px;
-  gap: 25px;
 }
 
 .card_text {
   width: 321px;
 }
 
-.buttons_block {
-  padding-right: 25px;
-}
-
 .button_save {
-  display: flex;
   flex-direction: column;
   max-width: 306px;
-  width: 100%;
   height: 84px;
 }
 
