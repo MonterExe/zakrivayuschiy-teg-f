@@ -93,6 +93,7 @@
 .card_text {
   width: 646px;
   font-size: 18px;
+  line-height: 21px;
 }
 
 .card_subtext {
@@ -133,6 +134,8 @@
 
 .image_block {
   position: relative;
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
 }
 
 .button_save {
@@ -140,7 +143,7 @@
   gap: 11px;
   max-width: 333px;
   width: 100%;
-  height: 63px;
+  height: 55px;
 }
 
 .dialog_floppy_icon {
@@ -170,23 +173,36 @@ dialog::backdrop {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 312px;
+  gap: 8px;
+  width: 353px;
 }
 
 .dialog_text {
   text-transform: uppercase;
   line-height: 150%;
   font-family: var(--PressStart2P), sans-serif;
-  width: 270px;
+  width: 234px;
+  font-size: 14px;
+  margin-right: 29px;
+  margin-top: 25px;
 }
 
 .floppy_icon {
   padding-left: 8px
 }
 
+.floppy {
+  mix-blend-mode: difference;
+  z-index: 2;
+  color: #ffffff;
+  mix-blend-mode: difference;
+  display: inline-block;
+}
+
 .dialog_floppy {
   padding-left: 0;
-  margin-left: 10px;
+  margin-top: 36px;
+  margin-right: 5px;
 }
 
 .dialog_button {
@@ -199,16 +215,18 @@ dialog::backdrop {
 
 .dialog_content {
   display: flex;
-  gap: 20px;
+  gap: 15px;
   flex-direction: row-reverse;
-  padding-bottom: 31px;
 }
 
 .form_dialog {
   align-self: center;
+  margin-top: 19px;
+  margin-bottom: 0px;
+  padding-bottom: 24px;
 }
 
-.button_save:focus {
+.main_button:focus {
   outline: none;
   box-shadow: 2px 2px 0 #000;
   transition: all 0.3s ease;
@@ -216,12 +234,6 @@ dialog::backdrop {
 
 .card__like-button {
   position: relative;
-}
-
-.card__like-button:focus {
-  outline: none;
-  box-shadow: 2px 2px 0 #000;
-  transition: all 0.3s ease;
 }
 
 .button::before {
@@ -243,11 +255,28 @@ dialog::backdrop {
   transform: scaleX(1);
 }
 
+.main_button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.5s ease-in-out;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.main_button:hover {
+  transform: scaleX(1);
+}
+
 .dialog_button::before {
   width: 308px;
   height: 39px;
-  top: 119px;
-  left: 18px;
 }
 
 .card_like_icon:hover::before {
@@ -274,14 +303,16 @@ dialog::backdrop {
   transition: border-color 0.3s ease;
 }
 
-/* Убираем стандартную обводку в состоянии focus */
-.card_like_icon:focus {
-  outline: none;
-}
-
 /* Фокус только для клавиатурной навигации - видимая рамка */
 .card_like_icon:focus-visible {
+  outline: none;
+  border: 2px 2px 0;
+  transition: all 0.3s ease;
   border-color: var(--accent-color, #000);
+}
+
+.dialog {
+  padding: 0;
 }
 
 .sparks {
@@ -484,15 +515,29 @@ dialog::backdrop {
 }
 
 .dialog_floppy_icon {
-  margin-left: 10px;
-  margin-top: 12.4px;
+  margin-right: 10px;
 }
 
 .dialog_div {
-  width: 299px;
+  width: 329px;
 }
 
 .floppy_icon {
   margin-top: 13px;
+  padding-left: 0;
+}
+
+.dialog_button {
+  width: 261px;
+  margin-bottom: 0;
+}
+
+.dialog_content {
+  gap: 0px;
+}
+
+.dialog_text {
+  margin-right: 10px;
+  padding-left: 10px;
 }
 }
