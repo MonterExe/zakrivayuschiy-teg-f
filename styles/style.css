@@ -77,9 +77,11 @@
 }
 
 .card_image {
-  width: 696px;
+  max-width: 696px;
+  width: 100%;
   min-height: 371px;
   max-height: 696px;
+  object-fit: cover;
 }
 
 .card_text_block {
@@ -91,13 +93,8 @@
 }
 
 .card_text {
-  width: 646px;
   font-size: 18px;
   line-height: 21px;
-}
-
-.card_subtext {
-  font-size: 18px;
 }
 
 .buttons_block {
@@ -105,10 +102,6 @@
   justify-content: end;
   padding-right: 25px;
   padding-bottom: 25px;
-}
-
-.card_like_icon {
-  border: none;
 }
 
 .label {
@@ -187,7 +180,6 @@ dialog::backdrop {
   mix-blend-mode: difference;
   z-index: 2;
   color: #ffffff;
-  mix-blend-mode: difference;
   display: inline-block;
 }
 
@@ -226,6 +218,7 @@ dialog::backdrop {
 
 .card__like-button {
   position: relative;
+  width: 130px;
 }
 
 .button::before {
@@ -283,7 +276,7 @@ dialog::backdrop {
 /* Фокус только для клавиатурной навигации - видимая рамка */
 .card_like_icon:focus-visible {
   outline: none;
-  border: 2px 2px 0;
+  border: 2px 2px 0 #000;
   transition: all 0.3s ease;
   border-color: var(--accent-color, #000);
 }
@@ -351,50 +344,16 @@ dialog::backdrop {
   transition: fill 0.3s linear 0.06s;
 }
 
-.like-icon.is-liked .heart {
+.like-icon.is-liked {
   animation: heart-scale 0.3s 0.06s linear 1;
-}
-
-@keyframes heart-scale {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.5);
-  }
-  100% {
-    transform: scale(1);
-  }
 }
 
 .like-icon.is-liked .sparks {
   animation: sparks-opacity 0.3s 0.3s linear 1;
 }
 
-@keyframes sparks-opacity {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-
 .like-icon {
   transform-origin: center;
-}
-
-.heart { 
-  animation: heart-scale 0.3s 0.1s ease-in 1; /* Длительность 0.3s, задержка 0.1s, функция ease-in, 1 повтор */ 
-}
-
-/* При лайке применяем анимацию появления искр */
-.like-icon.is-liked .sparks {
-  animation: sparks-opacity 0.3s 0.3s ease-in 1; /* Длительность 0.3s, задержка 0.3s, функция ease-in, 1 повтор */
 }
 
 .dog_image {
@@ -440,7 +399,7 @@ dialog::backdrop {
 }
 
 .card_image {
-  width: 371px;
+  max-width: 371px;
 }
 
 .card_text {
