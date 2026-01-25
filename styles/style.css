@@ -154,21 +154,30 @@ dialog::backdrop {
 }
 
 .dialog_div {
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 8px;
-  width: 353px;
+  gap: 30px;
+  padding-left: 28px;
+  padding-right: 26px;
+  padding-bottom: 28px;
+  padding-top: 22px;
+}
+
+.dialog_content {
+  display: flex;
+  gap: 24px;
+  flex-direction: row-reverse;
 }
 
 .dialog_text {
   text-transform: uppercase;
   line-height: 150%;
   font-family: var(--PressStart2P), sans-serif;
-  width: 234px;
+  max-width: 234px;
   font-size: 14px;
-  margin-right: 29px;
-  margin-top: 25px;
+  padding-top: 6px;
 }
 
 .floppy_icon {
@@ -185,29 +194,18 @@ dialog::backdrop {
 
 .dialog_floppy {
   padding-left: 0;
-  margin-top: 36px;
-  margin-right: 5px;
+  margin-top: 15px;
+  flex-shrink: 0;
 }
 
 .dialog_button {
-  width: 293px;
   font-family: var(--PressStart2P), sans-serif;
   text-transform: uppercase;
   height: 39px;
-  margin-bottom: 7px;
-}
-
-.dialog_content {
-  display: flex;
-  gap: 15px;
-  flex-direction: row-reverse;
 }
 
 .form_dialog {
-  align-self: center;
-  margin-top: 19px;
-  margin-bottom: 0px;
-  padding-bottom: 24px;
+  width: 100%;
 }
 
 .main_button:focus {
@@ -276,12 +274,14 @@ dialog::backdrop {
 /* Фокус только для клавиатурной навигации - видимая рамка */
 .card_like_icon:focus-visible {
   outline: none;
-  border: 2px 2px 0 #000;
+  border: 2px 0 #000;
   transition: all 0.3s ease;
   border-color: var(--accent-color, #000);
 }
 
 .dialog {
+  width: 100%;
+  max-width: 357px;
   padding: 0;
 }
 
@@ -412,17 +412,22 @@ dialog::backdrop {
   height: 84px;
 }
 
-.dialog_floppy_icon {
-  margin-right: 10px;
-}
-
 .dialog_div {
-  width: 329px;
+  width: 100%;
+  padding-right: 0px;
+  padding-bottom: 25px;
+  padding-top: 25px;
+  padding-left: 41px;
+  gap: 30px;
 }
 
 .floppy_icon {
   margin-top: 13px;
   padding-left: 0;
+}
+
+.dialog {
+  max-width: 346px;
 }
 
 .dialog_button {
@@ -431,11 +436,18 @@ dialog::backdrop {
 }
 
 .dialog_content {
-  gap: 0px;
+  gap: 17px;
 }
 
 .dialog_text {
-  margin-right: 10px;
-  padding-left: 10px;
+  margin-right: 18px;
+  padding-bottom: 0;
+  margin-top: 0;
+}
+
+.form_dialog {
+  margin-top: 0;
+  padding-bottom: 0;
+  padding-right: 30px;
 }
 }
